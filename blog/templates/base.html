@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    {% load crispy_forms_tags %}
+<head>
+    <title>django</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+</head>
+<body style="background-color: rgb(234, 177, 108)">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Trailblazer Safaris</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              {% if user.is_authenticated %} 
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'index_page' %}">Home</a>
+              </li>
+        
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_gamepark_page' %}" >add Gamepark</a> |
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_visitor_page' %}" >Add Visitor</a> |
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_payment_page' %}" >Add Payment</a> |
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_warden_page' %}" >Add Warden</a> |
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_wildlife_animal_page' %}" >Add Wildlife animal</a> |
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">logout</a>
+              </li>
+            {% else %} 
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'sign_up' %}">Sign up here</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">login</a>
+                </li>
+
+            {% endif %} 
+            </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="https://trailblazer.co.ug/">Check our website</a>
+            </li>
+          </div>
+        </div>
+      </nav>
+
+      {% if message %}
+      {% for message in messages %} 
+      <div class="alert alert-success" role="alert">
+          {{message}}
+        </div>
+      {% endfor %}
+      {% endif %}
+
+    {% block content %}
+    
+    {% endblock content %}
+    
+    
+</body>
+</html> 
+

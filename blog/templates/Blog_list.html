@@ -1,0 +1,39 @@
+{% extends './ase.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<center>
+   <h1 style="background-color:DodgerBlue;">Services done at trailblazer safaris</p>
+    <ul>
+        <li>ULTIMATE GORILLA EXPERIENCE</li>
+        <li>EXPERIENCE SNOW AT THE EQUATOR</li>
+        <li>EXPERIENCE THE PLACE OF BIRDS “BUNYONYI”</li>
+        <li>A TRUE AFRICAN WILDERNESS WITH WONDERS</li>
+    </ul>
+
+    <br>
+    <h2>Safaris in details</h2>
+    <h3>ULTIMATE GORILLA EXPERIENCE</h3>
+    <p style="background-color: Tomato">Enter this ancient forest and you will see the rare and unforgettable Mountain Gorilla.</p>
+
+    <br>
+
+    <h3>EXPERIENCE SNOW AT THE EQUATOR</h3>
+    <p style="background-color: Tomato">"Mountains of the Moon” is the snowy source of the Nile referred to by early geographers.</p>
+
+    <br>
+
+    <h3>EXPERIENCE THE PLACE OF BIRDS “BUNYONYI”</h3>
+    <p style="background-color: Tomato">Also the deepest lake in Uganda, home of Otters, crayfish and a place of many little birds</p>
+
+    <br>
+
+    <h3>A TRUE AFRICAN WILDERNESS WITH WONDERS</h3>
+    <p style="background-color: Tomato">Elephants, Buffaloes, Lions, Giraffes, Zebras, Hyenas, and Cheetah … roam rolling grasslands</p>
+
+    <br>
+
+    <a href="{% url 'index_page' %}">home page</a>
+
+</center>
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends './ase.html' %}
+{% load crispy_forms_tags %}
+<h1>Add payments details </h1>
+{% block content %}
+     
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        
+        <button class="btn btn-primary" type="submit">submit</button>
+    </form>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col"> payment_id</th>
+            <th scope="col"> payment_date</th>
+            <th scope="col"> visitor_id</th>
+            <th scope="col"> amount_paid</th>
+            <th scope="col"> recieved_by</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for payment in payments %} 
+            <tr>
+            <th scope="row">{{payment.id}}</th>
+            <td>{{payment.payment_date}}</td>
+            <td>{{payment.visitor_id}}</td>
+            <td>{{payment.amount_paid}}</td>
+            <td>{{payment.recieved_by}}</td>
+
+        <td>
+            <a href="{% url 'edit_payment_page' payment.id %}"> Edit</a> |
+            <a href="{% url 'delete_payment_page' payment.id %}" onclick="return confirm('Are you sure you want to delete this payment ?')"> Delete</a>
+        </td>
+
+</tr>
+{% endfor %} 
+</tbody>
+
+</table>  
+</div>
+
+{% endblock content %}  
+

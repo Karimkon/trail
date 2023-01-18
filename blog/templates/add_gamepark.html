@@ -1,0 +1,52 @@
+{% extends './ase.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    
+    <h1> Add gamepark </h1>
+<div class="container">
+
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class="btn btn-primary" type="submit">submit</button>
+    </form>
+     <br>
+    
+    <a href="{% url 'gamepark_pdf_page' %}" >
+    <button type="button" class="btn btn-primary" >Generate PDF</button>
+</a>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col"> gamepark_id</th>
+            <th scope="col"> gamepark_name</th>
+            <th scope="col"> contact</th>
+            <th scope="col"> contact_person</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for gamepark in gameparks %} 
+            <tr>
+            <th scope="row">{{gamepark.id}}</th>
+            <td>{{gamepark.gamepark_name}}</td>
+            <td>{{gamepark.contact}}</td>
+            <td>{{gamepark.contact_person}}</td>
+
+        <td>
+            <a href="{% url 'edit_gamepark_page' gamepark.id %}"> Edit</a> |
+            <a href="{% url 'delete_gamepark_page' gamepark.id %}" onclick="return confirm('Are you sure you want to delete this gamepark ?')"> delete</a>
+        </td>
+
+</tr>
+{% endfor %} 
+</tbody>
+
+</table>  
+</div>
+
+{% endblock content %}

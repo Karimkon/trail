@@ -1,0 +1,22 @@
+{% extends './ase.html' %}
+
+
+
+{% block content %} 
+
+<h1> Edit {{gamepark.gamepark_name}}</h1>
+
+{% load crispy_forms_tags %}
+<div class="container">
+    <form method="POST">
+        {% csrf_token %} 
+        {{form|crispy}}
+        <input type="submit" class="btn btn-primary">
+       <a href="{% url 'add_gamepark_page' %}"> <button type="button" class="btn btn-danger">back</button> </a>
+    </form>
+
+</div>
+
+
+
+{% endblock content %}

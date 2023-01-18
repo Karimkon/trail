@@ -1,0 +1,22 @@
+{% extends './ase.html' %}
+
+
+{% load crispy_forms_tags %}
+{% block content %} 
+
+<h1> Edit {{warden.warden_name}}</h1>
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %} 
+        {{form|crispy}}
+        <input type="submit" class="btn btn-primary">
+        <a href="{% url 'add_warden_page' %}" > <button type="button" class="btn btn-danger"> Back</button></a>
+    </form>
+
+</div>
+
+
+
+
+{% endblock content %}

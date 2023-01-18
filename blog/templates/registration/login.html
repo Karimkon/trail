@@ -1,0 +1,20 @@
+{% extends '../base.html' %} 
+
+{% load crispy_forms_tags %} 
+
+{% block content %}
+</center>
+<center><H2>WELCOME TO TRAILBLAZER SAFARIS</H2></center>
+<form method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-primary" > Login </button>
+    
+</form>
+</center>
+{% endblock content %}
+
+
+
+
+
